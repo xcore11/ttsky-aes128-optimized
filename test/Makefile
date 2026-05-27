@@ -1,12 +1,5 @@
 # Makefile
 # See https://docs.cocotb.org/en/stable/quickstart.html for more info
-#
-# Tiny Tapeout cocotb Makefile for AES-128 project.
-# Put this file at:
-#   ttsky-verilog-template/test/Makefile
-#
-# This version is intended for GitHub Actions.
-# It does not contain the Windows/Icarus preflight check.
 
 # defaults
 SIM ?= icarus
@@ -47,7 +40,7 @@ COMPILE_ARGS += -DUNIT_DELAY=\#1
 VERILOG_SOURCES += $(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/verilog/primitives.v
 VERILOG_SOURCES += $(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd.v
 
-# this gets copied in by the GDS action workflow
+# This gets copied in by the GDS action workflow.
 VERILOG_SOURCES += $(PWD)/gate_level_netlist.v
 
 endif
@@ -60,9 +53,8 @@ VERILOG_SOURCES += $(PWD)/tb.v
 TOPLEVEL = tb
 
 # List test modules to run, separated by commas and without the .py suffix:
-# Keep both names for compatibility with different cocotb versions.
 MODULE = test
 COCOTB_TEST_MODULES = test
 
-# include cocotb's make rules to take care of the simulator setup
+# Include cocotb's make rules to take care of the simulator setup.
 include $(shell cocotb-config --makefiles)/Makefile.sim
