@@ -5,7 +5,7 @@ project:
   discord:      ""
   description:  "Iterative AES-128 encryption core with byte-load Tiny Tapeout wrapper"
   language:     "SystemVerilog"
-  clock_hz:     50000000
+  clock_hz:     10000000
 
   tiles: "4x2"
 
